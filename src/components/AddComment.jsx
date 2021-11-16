@@ -36,10 +36,10 @@ const AddComment = (props)=> {
     //     }
     // }
 
-   const sendComment = async (e) => {
+   const sendComment = async (props) => {
       // e.preventDefault()
         try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/comments', {
+            let response = await fetch('https://striveschool-api.herokuapp.com/api/comments'+props.asin, {
                 method: 'POST',
                 body: JSON.stringify(comment),
                 headers: {
@@ -68,12 +68,16 @@ const AddComment = (props)=> {
                             type="text"
                             placeholder="Add comment here"
                             value={comment.comment}
-                            onChange={e => ({
-                                comment: {
-                                    ...comment,
-                                    comment: e.target.value
-                                }
-                            })}
+                            onChange={e => 
+                                setComment({comment:{...comment, comment:e.taget.value}})
+                            //     ({
+                            //     comment: {
+                            //         ...comment,
+                            //         comment: e.target.value
+                            //     }
+                            // })
+                        
+                        }
                         />
                     </Form.Group>
                     <Form.Group>

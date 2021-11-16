@@ -24,15 +24,15 @@ const [isError, setIsError] = useState(false)
 
 // useEffect as componentDidMount
 useEffect(() => {
-    const getDataFromApi =(prevProps) => {
-        getData()
+    const getDataFromApi =() => {
+        getData(props)
     }
     getDataFromApi()
     
 }, [])
 
 
-const getData = async ()=>{
+const getData = async (props)=>{
 
 setIsLoading(true);
 
@@ -98,12 +98,10 @@ setIsLoading(true);
 //     }
 
 //useEffect as componentDidUpdate
-useEffect((comments) => {
+useEffect(() => {
     
-    return () => {
-        
-    }
-}, [comments])
+    getData(props)
+}, [props.comments])
 
 
 
