@@ -4,7 +4,7 @@ import { useState } from 'react'
 import {useEffect} from 'react'
 
 
-const AddComment = ()=> {
+const AddComment = (props)=> {
 
         const [comment, setComment] = useState('')
         const [rate, setRate] = useState(1)
@@ -18,10 +18,10 @@ const AddComment = ()=> {
     // }
                 useEffect(() => {
     
-            return () => {
+            sendComment()
         
-    }
-}, [elementId.asin])
+    
+}, [elementId])
 
 
 
@@ -37,11 +37,11 @@ const AddComment = ()=> {
     // }
 
    const sendComment = async (e) => {
-        e.preventDefault()
+      // e.preventDefault()
         try {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/comments', {
                 method: 'POST',
-                body: JSON.stringify(this.state.comment),
+                body: JSON.stringify(comment),
                 headers: {
                     'Content-type': 'application/json',
                     Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyOGQ1MWFhY2FhMjAwMTU1MmExNzUiLCJpYXQiOjE2MzcwNjg5NDQsImV4cCI6MTYzODI3ODU0NH0.vtoNjl4Gtz8if7lKj97PNS_HK6yxmMmwTktpgE3kJF4"

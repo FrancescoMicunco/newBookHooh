@@ -22,10 +22,18 @@ const [isError, setIsError] = useState(false)
     //     isError: false
     // }
 
-
+// useEffect as componentDidMount
 useEffect(() => {
-    const getDataFromApi = async (prevProps) => {
-        if (prevProps.asin !== props.asin) {
+    const getDataFromApi =(prevProps) => {
+        getData()
+    }
+    getDataFromApi()
+    
+}, [])
+
+
+const getData = async ()=>{
+
 setIsLoading(true);
 
             // this.setState({
@@ -61,14 +69,9 @@ setIsLoading(true);
 
                 // this.setState({ isLoading: false, isError: true })
             }
-        }
-    }
-    getDataFromApi()
-    
-}, [])
-
-
-//     componentDidUpdate = async (prevProps) => {
+        
+}
+//    componentDidUpdate = async (prevProps) => {
 //         if (prevProps.asin !== this.props.asin) {
 //             this.setState({
 //                 isLoading: true
@@ -94,6 +97,24 @@ setIsLoading(true);
 //         }
 //     }
 
+//useEffect as componentDidUpdate
+useEffect((comments) => {
+    
+    return () => {
+        
+    }
+}, [comments])
+
+
+
+
+//useEffect as componentDidUnmount
+useEffect(() => {
+    
+    return () => {
+        
+    }
+})
     
         return (
             <div>
