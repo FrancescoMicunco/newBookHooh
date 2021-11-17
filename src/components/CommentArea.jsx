@@ -101,7 +101,7 @@ setIsLoading(true);
 useEffect(() => {
     
     getData(props)
-}, [props.comments])
+}, [props.asin])
 
 
 
@@ -119,7 +119,10 @@ useEffect(() => {
                 {isLoading && <Loading />}
                 {isError && <Error />}
                 <AddComment asin={props.asin} />
-                <CommentList commentsToShow={comments} />
+                {
+                    <CommentList commentsToShow={comments} />
+                }
+                
             </div>
         )
    

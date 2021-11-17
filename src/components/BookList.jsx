@@ -41,7 +41,7 @@ const BookList = (props)=> {
                                         <SingleBook
                                             book={b}
                                             selectedBook={selectedBook}
-                                            changeSelectedBook={asin => setBook(asin)
+                                            ChangeSelectedBook={asin => setBook(asin)
                                                 
                                             //     this.setState({
                                             //     selectedBook: asin
